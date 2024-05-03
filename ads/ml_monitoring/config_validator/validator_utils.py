@@ -38,6 +38,7 @@ def validate_config(config: Dict[str, Any], action_type: ApplicationActionType) 
     return error_list
 
 
+
 def validate_library_components(config: Dict[str, Any], error_list: Dict[str, Any], config_map: Dict[str, Any]) -> None:
     # validate input schema
     print("validating library component - input schema.")
