@@ -8,6 +8,8 @@ import mlm_insights.utils.config_validator_util.config_validator_utils as Config
 
 import json
 
+from mlm_insights.config_reader.utils.config_registry import ConfigRegistry
+
 from ads.ml_monitoring.application_config import ApplicationActionType, RuntimeParameter
 from ads.ml_monitoring.constants import MONITOR_ID, BASELINE_READER, PREDICTION_READER, READER_KEY, \
     SAVE_METRIC_OUTPUT_AS_JSON_WRITER_POST_PROCESSOR, STORAGE_TYPE, STORAGE_DETAILS, NAMESPACE, OCI_OBJECT_STORAGE, PARAMS, BUCKET_NAME,START, DATE_RANGE, \
