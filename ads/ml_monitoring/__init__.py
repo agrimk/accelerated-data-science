@@ -10,6 +10,7 @@ import logging
 logger = logging.getLogger(__name__)
 try:
     from ads.ml_monitoring.config_validator.config_validator import ConfigValidator
+    from ads.ml_monitoring.config_authoring.config_authoring import ConfigAuthoring
 except AttributeError as e:
     import oci.data_science
 
@@ -21,5 +22,6 @@ except AttributeError as e:
         raise e
 
 __all__ = [
-    "ConfigValidator"
+    "ConfigValidator",
+    "ConfigAuthoring"
 ]

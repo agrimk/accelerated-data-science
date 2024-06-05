@@ -1,21 +1,21 @@
 
 import unittest
-import pytest
-import numpy as np
-from unittest.mock import MagicMock, Mock, patch
+# import pytest
+# import numpy as np
+# from unittest.mock import MagicMock, Mock, patch
 
-from ads.common import auth as authutil
-from ads.common import oci_client
-from ads.ml_monitoring import ConfigValidator
-from ads.model.deployment.model_deployment import (
-    ModelDeployment,
-    ModelDeploymentProperties,
-)
-from ads.model.deployment.model_deployment_infrastructure import ModelDeploymentInfrastructure
-from ads.model.deployment.model_deployment_runtime import ModelDeploymentCondaRuntime
+# from ads.common import auth as authutil
+# from ads.common import oci_client
+from ads.ml_monitoring import ConfigValidator, ConfigAuthoring
+# from ads.model.deployment.model_deployment import (
+#     ModelDeployment,
+#     ModelDeploymentProperties,
+# )
+# from ads.model.deployment.model_deployment_infrastructure import ModelDeploymentInfrastructure
+# from ads.model.deployment.model_deployment_runtime import ModelDeploymentCondaRuntime
 
 
-class ModelDeploymentTestCase(unittest.TestCase):
+class MLMTestCase(unittest.TestCase):
     # MODEL_ID = "<MODEL_OCID>"
     # with patch.object(oci_client, "OCIClientFactory"):
     #     config_validator = ConfigValidator()
@@ -30,6 +30,7 @@ class ModelDeploymentTestCase(unittest.TestCase):
         # )
         config_validator = ConfigValidator()
         test_result = config_validator.validate_config(config={"monitor_id" : "13"}, action_type="RUN_BASELINE")
+        print(test_result)
         # with patch.object(authutil, "default_signer") as mock_auth:
         #     auth = MagicMock()
         #     auth["signer"] = MagicMock()
@@ -45,3 +46,16 @@ class ModelDeploymentTestCase(unittest.TestCase):
         #
         # with pytest.raises(TypeError):
         #     self.config_validator.validate_config(action_type="RUN_BASELINE",config="test")
+
+    def test_config_authoring(self):
+        config_authoring = ConfigAuthoring()
+        result = config_authoring.authoring(config_name="abc.json", component_name="input" ,config_value={ "Age": {
+              "data_type": "integer",
+              "variable_type": "continuous"
+            },
+            "EnvironmentSatisfaction": {
+              "data_type": "integer",
+              "variable_type": "continuous"
+            }})
+
+        print(result)
